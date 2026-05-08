@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      .bg {
+        width: 100vw - 20px;
+        height: 100vh;
+        object-fit: cover;
+        position: relative;
+      }
+      img {
+        width: 100%;
+      }
+      #user {
+        width: 200px;
+        display: inline-block;
+      }
+      h3 {
+        font-size: 40px;
+        font-family: "Jua", sans-serif;
+      }
+      p {
+        font-size: 18px;
+      }
+      .wrap {
+        width: 80vw;
+        text-align: center;
+        position: absolute;
+        top: 7%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .basic {
+        width: 250px;
+      }
+      .intro {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        font-family: "Chiron GoRound TC", sans-serif;
+        word-break: break-all;
+      }
+      .intro img {
+        width: 180px;
+        object-fit: cover;
+      }
+      .intro.on {
+        display: none;
+      }
+      .gray {
+        color: #666;
+      }
+      .yellow {
+        color: chocolate;
+      }
+      .way {
+        font-family: "Chiron GoRound TC", sans-serif;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      .way span {
+        font-weight: bold;
+      }
+      .way.on {
+        display: none;
+      }
+      #chance img {
+        width: 40px;
+      }
+      .food {
+        width: 25vw;
+        position: absolute;
+        bottom: 70px;
+        right: 80px;
+      }
+      .food:hover {
+        animation: shake 0.6s ease;
+      }
+      .start {
+        width: 200px;
+        font-family: "Jua", sans-serif;
+        height: 50px;
+        font-size: 25px;
+      }
+      .start.on {
+        display: none;
+      }
+      #result {
+        margin: 20px;
+        font-size: 18px;
+        font-family: "Chiron GoRound TC", sans-serif;
+      }
+      #chance {
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-family: "Chiron GoRound TC", sans-serif;
+      }
+      .game {
+        display: none;
+      }
+      .game.on {
+        display: block;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(-3deg);
+        }
+        50% {
+          transform: rotate(3deg);
+        }
+        75% {
+          transform: rotate(-3deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      .run {
+        width: 200px;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        display: none;
+        transition: left 0.4s ease;
+      }
+      .run.active {
+        display: block;
+      }
+      .full {
+        width: 10vw;
+        position: absolute;
+        bottom: 10px;
+        left: 30%;
+        display: none;
+      }
+      .full img {
+        width: 100%;
+      }
+      .full.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="bg" src="img/background.png" alt="bg" />
+    <div class="wrap">
+      <h3>주인 몰래 간식 먹기!</h3>
+      <img class="basic" src="img/cat_basic.png" alt="" />
+      <div class="intro">
+        <img src="img/yellow_snack.png" alt="cats" />
+        <p>
+          안녕! 나는 <span class="gray">먼지</span>, 얘는
+          <span class="yellow">누룽지</span>라고 해.<br />
+          우리가 너무 배고픈데, 간식이 잠긴 상자에 들어 있어서 먹을 수가
+          없어.<br />
+          주인이 잠가 둔 자물쇠의 숫자를 알아내면 먹을 수 있을 거야!<br />
+          함께 숫자를 맞춰 간식 먹는 걸 도와줄래?
+        </p>
+        <img src="img/gray_hungry.png" alt="cats" />
+      </div>
+      <button type="button" class="btn btn-warning start">시작하기</button>
+      <div class="game">
+        <div class="way">
+          <span><게임 방법></span><br />
+          1. 1부터 100까지 중 하나의 수를 입력합니다.<br />2. 정답이 입력한
+          수보다 큰 수인지, 작은 수인지를 Up / Down으로 알려줍니다.<br />3.
+          기회는 단 5번! 그 안에 비밀번호를 알아내지 못하면 고양이들이 굶게
+          되어요.
+        </div>
+        <div id="result">결과 : up/down/bingo</div>
+        <div id="chance">
+          남은 기회 :
+          <img src="img/chance01.png" alt="paw" />
+          <img src="img/chance02.png" alt="paw" />
+          <img src="img/chance03.png" alt="paw" />
+          <img src="img/chance04.png" alt="paw" />
+          <img src="img/chance05.png" alt="paw" />
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          id="user"
+          placeholder="1부터 100까지의 수"
+          onkeypress="
+            if (event.keyCode == 13) {
+              play();
+            }
+          "
+        />
+        <button type="button" class="btn btn-success" id="play">시도</button>
+        <button type="button" class="btn btn-secondary" id="reset">
+          다시하기
+        </button>
+      </div>
+    </div>
+    <div class="food">
+      <img class="foods" src="img/lock.png" alt="lock" />
+    </div>
+    <div class="full">
+      <img class="fulls" src="img/full.png" alt="" />
+    </div>
+    <div class="run">
+      <img src="img/yellow_run.png" alt="cats run" />
+    </div>
+    <script src="custom.js"></script>
+  </body>
+</html>
