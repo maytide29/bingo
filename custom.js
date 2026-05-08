@@ -16,6 +16,7 @@ let way = document.querySelector(".way");
 let food = document.querySelector(".foods");
 let full = document.querySelector(".full");
 let runPosition = 30;
+let h3 = document.querySelector("h3");
 
 //random 수
 function randomNum() {
@@ -97,6 +98,9 @@ function reset() {
   });
   runPosition = 30;
   run.style.left = "30px";
+  full.classList.remove("active");
+  run.classList.remove("active");
+  food.src = "img/lock.png";
   randomNum();
 }
 
@@ -106,3 +110,29 @@ start.addEventListener("click", () => {
   intro.classList.add("on");
   run.classList.add("active");
 });
+
+function win() {
+  let w = window.innerWidth;
+  console.log(w);
+  if (w <= 580) {
+    intro.classList.add("on");
+  } else if (w <= 790) {
+    intro.classList.add("hun");
+    h3.classList.add("hun");
+    way.classList.add("hun");
+  } else if (w <= 1100) {
+    intro.classList.add("thou");
+    h3.classList.add("thou");
+    intro.classList.remove("hun");
+    h3.classList.remove("hun");
+    way.classList.remove("hun");
+  } else {
+    intro.classList.remove("thou");
+    intro.classList.remove("hun");
+    h3.classList.remove("thou");
+    h3.classList.remove("hun");
+    way.classList.remove("hun");
+  }
+}
+win();
+window.addEventListener("resize", win);

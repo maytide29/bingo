@@ -16,6 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="#" />
     <style>
       * {
         margin: 0px;
@@ -39,8 +40,11 @@
         font-size: 40px;
         font-family: "Jua", sans-serif;
       }
-      p {
-        font-size: 18px;
+      h3.thou {
+        font-size: 30px;
+      }
+      h3.hun {
+        font-size: 20px;
       }
       .wrap {
         width: 80vw;
@@ -61,6 +65,7 @@
         margin: 10px;
         font-family: "Chiron GoRound TC", sans-serif;
         word-break: break-all;
+        font-size: 18px;
       }
       .intro img {
         width: 180px;
@@ -68,6 +73,12 @@
       }
       .intro.on {
         display: none;
+      }
+      .intro.thou {
+        font-size: 16px;
+      }
+      .intro.hun {
+        font-size: 12px;
       }
       .gray {
         color: #666;
@@ -79,6 +90,9 @@
         font-family: "Chiron GoRound TC", sans-serif;
         font-size: 18px;
         margin-top: 20px;
+      }
+      .way.hun {
+        font-size: 14px;
       }
       .way span {
         font-weight: bold;
@@ -99,10 +113,10 @@
         animation: shake 0.6s ease;
       }
       .start {
-        width: 200px;
+        width: clamp(100px, 12vw, 200px);
         font-family: "Jua", sans-serif;
         height: 50px;
-        font-size: 25px;
+        font-size: clamp(16px, 2.5vw, 25px);
       }
       .start.on {
         display: none;
@@ -143,7 +157,7 @@
       }
 
       .run {
-        width: 200px;
+        width: 17vw;
         position: absolute;
         bottom: 30px;
         left: 30px;
@@ -154,7 +168,7 @@
         display: block;
       }
       .full {
-        width: 10vw;
+        width: 30vw;
         position: absolute;
         bottom: 10px;
         left: 30%;
